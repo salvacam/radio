@@ -1,0 +1,25 @@
+{
+  "version": "1.0.1",
+  "name":"Radio",
+  "subtitle": "Radio online",
+  "description":"Radio online",
+  "type": "web",
+  "launch_path" : "/index.html",
+  "icons":{
+    "56":"/img/icon-56x56.png",
+    "112":"/img/icon-112x112.png",
+    "128": "/img/icon-128x128.png"
+  },
+  "developer": {
+    "name":"Salvador Camacho Soto",
+    "url":"https://gitlab.com/salvacam/kaios/-/tree/master/radio"
+  },  
+  "locales": {
+    "es-ES": {
+      "name": "Radio",
+      "subtitle": "Radio online",
+      "description": "Radio online"
+    }
+  },
+  "default_locale": "es-ES"
+}
