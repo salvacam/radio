@@ -108,11 +108,18 @@
 	</header>
 
 	<div id="info" class="info pause">
-		<div>Slepp timer: <span id="sleepText">Disabled</span></div>		
+		<div>Slepp timer: <span id="sleepText">Disabled</span></div>
 		<div class="clear"></div>
+		<!--		
 		<div><b>Left</b> to decrease</div>
-		<div><b>Right</b> to increase</div>
+-->
+		<div style="display: inline-flex; min-width:120px;justify-content: space-around; background-color:#ccc; padding:3px 0px;">			
+			<a id="less" style="font-size: 35px; background-color: white; width: 25px; text-align: center;">-</a>	
+			<a id="more" style="font-size: 35px;  background-color: white; width: 25px; text-align: center;">+</a>	
+		</div>
+
 	</div>
+
 	<!--
 	<div class="softkey" style="background-color:#ccc; width: 100%; border-top:1px solid #666;padding:3px 0px; visibility:none; position:fixed; text-align: center; bottom: 0px; display: inline-flex; justify-content: start; min-height: 18px;" id="footerSet">
  			<div id="close" style="margin-right: 60px;">&nbspClose</div>

@@ -12,6 +12,8 @@ var app = {
   	sleepText: document.getElementById('sleepText'),
   	waitText: document.getElementById('waitText'),
   	close: document.getElementById('close'),
+  	less: document.getElementById('less'),
+  	more: document.getElementById('more'),
   	sleepInterval: null,
   	playInterval: null,
   	sleep: 0,
@@ -19,9 +21,6 @@ var app = {
   	isLoad: false,
 
   	init: function() {
-    	document.addEventListener('keypress', (e) => {
-			app.manejarTeclado(e);
-		});
 
 		app.audio.mozAudioChannelType = 'content'; //audio bg play
 		//app.audio.type = 'audio/mpeg';
@@ -34,8 +33,9 @@ var app = {
 
     	app.playText.addEventListener('click', app.audiopausetoggle);
     	app.pauseText.addEventListener('click', app.pauseStream);    	
+    	app.less.addEventListener('click', app.lessSleep);    	
+    	app.more.addEventListener('click', app.moreSleep);    	
 
-		/*
 	    if ('serviceWorker' in navigator) {
       		navigator.serviceWorker
         		.register('service-worker.js')
@@ -43,39 +43,24 @@ var app = {
           		//console.log('Service Worker Registered');
         	});
     	}
-    	*/
   	},
 
-	manejarTeclado: function(e) {
+	lessSleep: function() {	
+		app.sleep = app.sleep - 5; //5
 
-    	if ((e.key == "MicrophoneToggle" || e.key == "Enter") && !app.isLoading) {
-    		if (!app.isPressCenter) {
-    			app.isPressCenter = true;
-	        	app.audiopausetoggle();
-	    	}
-	        window.setTimeout(function() { app.isPressCenter = false; }, 500);
-	    }
-		else if (e.key == "ArrowLeft") { 
-			app.sleep = app.sleep - 5;
-
-			if (app.sleep < 0) {
-				app.sleep = 0;
-			}
-			app.setSleepTimer();
+		if (app.sleep < 0) {
+			app.sleep = 0;
 		}
-		else if (e.key == "ArrowRight") {
-			app.sleep = app.sleep + 5;
+		app.setSleepTimer();
+	},
+
+	moreSleep: function() {	
+		app.sleep = app.sleep + 5; //5
 			
-			if (app.sleep > 30) {
-				app.sleep = 30;
-			}
-			app.setSleepTimer();
-		}		
-		else if (e.key == "SoftLeft") {
-			if (confirm("Close the app?") == true) {
-				window.close();
-			}
+		if (app.sleep > 30) {
+			app.sleep = 30;
 		}
+		app.setSleepTimer();
 	},
 	
 	setSleepTimer: function() {		
