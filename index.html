@@ -2,16 +2,17 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Random Exercise</title>
+	<title>Radio</title>
 
 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=2, user-scalable=no" />
 
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 
+  	<meta name="theme-color" content="#CCC">
+
 	<link rel="icon" href="img/icon.png">
 
   	<style type="text/css">
-
 		body {
 		    font-family: Helvetica;
 		    font-size: 16px;
@@ -89,6 +90,8 @@
 		}
   	</style>
 
+    <link rel="manifest" href="./manifest.json">
+
     <meta name="description" content="Radio">
     <meta name="keywords" content="radio, radio online" />
 
@@ -105,21 +108,25 @@
 	</header>
 
 	<div id="info" class="info pause">
-		<div><b>Up</b> to increase volume</div>
-		<div><b>Down</b> to decrease volume</div>
-		<div class="clearx4"></div>
 		<div>Slepp timer: <span id="sleepText">Disabled</span></div>		
 		<div class="clear"></div>
 		<div><b>Left</b> to decrease</div>
 		<div><b>Right</b> to increase</div>
 	</div>
-	
+	<!--
 	<div class="softkey" style="background-color:#ccc; width: 100%; border-top:1px solid #666;padding:3px 0px; visibility:none; position:fixed; text-align: center; bottom: 0px; display: inline-flex; justify-content: start; min-height: 18px;" id="footerSet">
  			<div id="close" style="margin-right: 60px;">&nbspClose</div>
  			<div id="playText" >Play</div>
  			<div id="pauseText" class="hide">Pause</div>
 			<div class="loadersmall hide" id="waitText"></div>
   	</div>
+  -->
+
+    <div style="background-color:#ccc; margin-left: 30%; margin-right: 30%; width: 40%; min-width: 120px; padding:3px 0px; display: flex; justify-content: center; min-height: 50px;" >
+			<a id="play" style="width: 100px; background-color: white; color:black; text-align: center; font-size: 40px">></a>
+
+			<a id="pause" class="hide" style="width: 100px; background-color: white; color:black; text-align: center; font-size: 40px">||</a>
+		</div>
 	    
 	<script type="text/javascript" charset="utf-8" src="js/main.js"></script>
 

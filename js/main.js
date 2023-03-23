@@ -7,8 +7,8 @@ var app = {
 	isLoading: false,
 	pause: 1,
   	infoDiv: document.getElementById('info'),
-  	pauseText: document.getElementById('pauseText'),
-  	playText: document.getElementById('playText'),
+  	pauseText: document.getElementById('pause'),
+  	playText: document.getElementById('play'),
   	sleepText: document.getElementById('sleepText'),
   	waitText: document.getElementById('waitText'),
   	close: document.getElementById('close'),
@@ -31,9 +31,23 @@ var app = {
 		app.audio.onloadeddata = function() {
 			app.isLoad = true;
 		}
+
+    	app.playText.addEventListener('click', app.audiopausetoggle);
+    	app.pauseText.addEventListener('click', app.pauseStream);    	
+
+		/*
+	    if ('serviceWorker' in navigator) {
+      		navigator.serviceWorker
+        		.register('service-worker.js')
+        		.then(function() {
+          		//console.log('Service Worker Registered');
+        	});
+    	}
+    	*/
   	},
 
 	manejarTeclado: function(e) {
+
     	if ((e.key == "MicrophoneToggle" || e.key == "Enter") && !app.isLoading) {
     		if (!app.isPressCenter) {
     			app.isPressCenter = true;
@@ -41,14 +55,6 @@ var app = {
 	    	}
 	        window.setTimeout(function() { app.isPressCenter = false; }, 500);
 	    }
-	    else if (e.key == "ArrowDown") {
-	    	navigator.volumeManager.requestDown();
-	    	navigator.volumeManager.requestShow();
-	    }
-	    else if (e.key == "ArrowUp") {
-	    	navigator.volumeManager.requestUp();
-	    	navigator.volumeManager.requestShow();
-	    }	
 		else if (e.key == "ArrowLeft") { 
 			app.sleep = app.sleep - 5;
 
@@ -111,7 +117,7 @@ var app = {
         	app.audio.play();
 
 			app.playText.classList.add("hide");
-			app.pauseText.classList.add('hide');
+			app.pauseText.classList.remove('hide');
 			if (app.isLoad) {
 				app.showPlay();
 			} else {
