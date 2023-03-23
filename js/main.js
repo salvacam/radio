@@ -3,15 +3,12 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 var app = {
-	isPressCenter: false,
 	isLoading: false,
 	pause: 1,
-  	infoDiv: document.getElementById('info'),
   	pauseText: document.getElementById('pause'),
   	playText: document.getElementById('play'),
   	sleepText: document.getElementById('sleepText'),
   	waitText: document.getElementById('waitText'),
-  	close: document.getElementById('close'),
   	less: document.getElementById('less'),
   	more: document.getElementById('more'),
   	sleepInterval: null,
@@ -35,7 +32,8 @@ var app = {
     	app.pauseText.addEventListener('click', app.pauseStream);    	
     	app.less.addEventListener('click', app.lessSleep);    	
     	app.more.addEventListener('click', app.moreSleep);    	
-
+		
+		/*
 	    if ('serviceWorker' in navigator) {
       		navigator.serviceWorker
         		.register('service-worker.js')
@@ -43,10 +41,11 @@ var app = {
           		//console.log('Service Worker Registered');
         	});
     	}
+    	*/
   	},
 
 	lessSleep: function() {	
-		app.sleep = app.sleep - 5; //5
+		app.sleep = app.sleep - 5;
 
 		if (app.sleep < 0) {
 			app.sleep = 0;
@@ -55,7 +54,7 @@ var app = {
 	},
 
 	moreSleep: function() {	
-		app.sleep = app.sleep + 5; //5
+		app.sleep = app.sleep + 5;
 			
 		if (app.sleep > 30) {
 			app.sleep = 30;
@@ -82,8 +81,6 @@ var app = {
 	showPlay: function() {
 		app.waitText.classList.add('hide');
 		app.pauseText.classList.remove('hide');
-		app.infoDiv.classList.add("play");
-		app.infoDiv.classList.remove("pause");
 	},
 
 	checkPlay: function() {
@@ -102,7 +99,6 @@ var app = {
         	app.audio.play();
 
 			app.playText.classList.add("hide");
-			app.pauseText.classList.remove('hide');
 			if (app.isLoad) {
 				app.showPlay();
 			} else {
@@ -119,8 +115,6 @@ var app = {
     	app.audio.pause();
 		app.playText.classList.remove("hide");
 		app.pauseText.classList.add('hide');
-		app.infoDiv.classList.add("pause");
-		app.infoDiv.classList.remove("play");
 	},
 
 };
