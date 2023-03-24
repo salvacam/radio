@@ -14,10 +14,15 @@
 	<link rel="apple-touch-icon" href="img/icon-192x192.png">
 
   	<style type="text/css">
+  		html {
+  			height: 100%;
+  		}
+
 		body {
 		    font-family: Helvetica;
 		    font-size: 16px;
-		    margin: 0;
+		    margin: 0;		    
+  			height: 100%;
 		}
 
 		header {			
@@ -60,7 +65,7 @@
 			padding: 20px;
 			flex-direction: column;
 			align-items: center;
-			height: 188px;
+			height: calc(100% - 155px);
 		}
 		.play {
 		    background-color: cyan;
@@ -112,14 +117,14 @@
 	<div id="info" class="info pause">
 		<div>Slepp timer: <span id="sleepText">Disabled</span></div>
 		<div class="clear"></div>
-		<div style="display: inline-flex; min-width:120px;justify-content: space-around; background-color:#ccc; padding:3px 0px;">			
-			<a id="less" style="font-size: 35px; background-color: white; width: 25px; text-align: center;">-</a>	
-			<a id="more" style="font-size: 35px;  background-color: white; width: 25px; text-align: center;">+</a>	
+		<div style="display: inline-flex; min-width:150px;justify-content: space-around; background-color:#ccc; padding:5px 0px;">			
+			<a id="less" style="font-size: 50px; background-color: white; width: 35px; text-align: center;">-</a>	
+			<a id="more" style="font-size: 50px;  background-color: white; width: 35px; text-align: center;">+</a>	
 		</div>
 
 	</div>
 
-    <div style="background-color:#ccc; margin-left: 30%; margin-right: 30%; width: 40%; min-width: 120px; padding:3px 0px; display: flex; justify-content: center; min-height: 50px;" >
+    <div style="background-color:#ccc; width: 100%; min-width: 120px; padding:15px 0px; display: flex; justify-content: center; min-height: 50px; position: fixed; bottom: 0;" >
 			<a id="play" style="width: 100px; background-color: white; color:black; text-align: center; font-size: 40px">></a>
 
 			<div class="loadersmall hide" id="waitText"></div>
