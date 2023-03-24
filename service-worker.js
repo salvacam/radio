@@ -1,4 +1,4 @@
-var cacheName = 'radio-v0.0.01';
+var cacheName = 'radio-v0.1.0';
 
 var filesToCache = [
   './',
