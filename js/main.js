@@ -33,7 +33,6 @@ var app = {
     	app.less.addEventListener('click', app.lessSleep);    	
     	app.more.addEventListener('click', app.moreSleep);    	
 		
-		/*
 	    if ('serviceWorker' in navigator) {
       		navigator.serviceWorker
         		.register('service-worker.js')
@@ -41,7 +40,6 @@ var app = {
           		//console.log('Service Worker Registered');
         	});
     	}
-    	*/
   	},
 
 	lessSleep: function() {	
