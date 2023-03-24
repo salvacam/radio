@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 var app = {
 	isLoading: false,
 	pause: 1,
+  	infoDiv: document.getElementById('info'),
   	pauseText: document.getElementById('pause'),
   	playText: document.getElementById('play'),
   	sleepText: document.getElementById('sleepText'),
@@ -79,6 +80,8 @@ var app = {
 	showPlay: function() {
 		app.waitText.classList.add('hide');
 		app.pauseText.classList.remove('hide');
+		app.infoDiv.classList.add("play");
+		app.infoDiv.classList.remove("pause");
 	},
 
 	checkPlay: function() {
@@ -113,6 +116,8 @@ var app = {
     	app.audio.pause();
 		app.playText.classList.remove("hide");
 		app.pauseText.classList.add('hide');
+		app.infoDiv.classList.add("pause");
+		app.infoDiv.classList.remove("play");
 	},
 
 };
